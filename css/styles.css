@@ -1,0 +1,119 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES */
+/* MIXINS */
+/* TEXT STYLES */
+html {
+  font-size: 16px;
+}
+
+h1, h2, h3, li {
+  font-family: "Futura PT", Sans-Serif;
+}
+
+p, blockquote, footer.author, input {
+  font-family: "Tisa Pro", Serif;
+}
+
+header h1 {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 48px;
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1.125;
+  color: #59463b;
+}
+
+h2 {
+  font-size: 2.375em;
+  font-weight: 400;
+  color: #c06e40;
+}
+
+h3 {
+  font-size: 1.125em;
+  font-weight: 700;
+  color: #59463b;
+}
+
+p {
+  font-size: 1.125em;
+  color: #59463b;
+}
+
+.introduction p {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+p.copyright {
+  font-size: 0.6875em;
+  color: #857b75;
+}
+
+input {
+  font-size: 0.875em;
+  color: rgba(133, 123, 117, 0.7);
+}
+
+.say-hello li {
+  font-size: 1.125em;
+  font-weight: 700;
+  line-height: 1.65;
+  color: #93e1e2;
+  list-style-type: none;
+}
+
+blockquote {
+  font-size: 1.125em;
+  color: #857b75;
+}
+
+footer.author {
+  font-size: 0.6875em;
+  font-style: italic;
+  color: #59463b;
+}
+
+/* LAYOUT STYLES */
+header {
+  height: 204px;
+  background-image: url(../img/header-repeat.jpg);
+  background-repeat: repeat;
+  border-top: #857b75 6px solid;
+  box-shadow: 0 -1px 6px rgba(133, 123, 117, 0.7);
+}
+
+figure.portrait {
+  width: 142px;
+  height: 142px;
+  position: relative;
+  top: -25px;
+  left: 942px;
+  border: #c06e40 6px solid;
+  background-color: #FBFBFA;
+}
+figure.portrait img {
+  width: 100%;
+}
+
+main, footer .say-hello {
+  width: 600px;
+  margin: 0 auto;
+}
+
+section {
+  margin: 50px 0;
+}
+
+section.introduction {
+  margin: 70px 0;
+}

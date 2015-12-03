@@ -1,0 +1,143 @@
+/* RESET */
+* {
+	margin:0;
+ 	padding:0;
+ 	border:0;
+	box-sizing: border-box;
+}
+
+/* VARIABLES */
+$richBrown: #59463b;
+$coolBrown: #857b75;
+$coolBrownTp: rgba($coolBrown, 0.7);
+$orange: #c06e40;
+$coral: #93e1e2;
+$offWhite: #FBFBFA;
+
+/* MIXINS */
+@mixin box-size {
+	width: 600px;
+	margin: 0 auto;
+}
+
+/* TEXT STYLES */
+html {
+	font-size: 16px;
+}
+
+h1, h2, h3, li {
+	font-family: "Futura PT", Sans-Serif;
+}
+
+p, blockquote, footer.author, input {
+	font-family: "Tisa Pro", Serif;
+}
+
+header h1 {
+	@include box-size;
+	display: block;
+	padding-top: (204px / 2) - ( 108 / 2); // (header height / 2) - (h2 height / 2)
+
+	font-size: 3em; // try writing a sass function that to convert px to em
+	font-weight: 700;
+	line-height: 1.125;
+	color: $richBrown
+}
+
+h2 {
+	font-size: 2.375em;
+	font-weight: 400;
+	color: $orange;
+}
+
+h3 {
+	font-size: 1.125em;
+	font-weight: 700;
+	color: $richBrown;
+}
+
+p {
+	font-size: 1.125em;
+	color: $richBrown;
+}
+
+.introduction p {
+	font-size: 1.5em;
+	line-height: 1.5;
+}
+
+p.copyright {
+	font-size: 0.6875em;
+	color: $coolBrown;
+}
+
+input {
+	font-size: 0.875em;
+	color: $coolBrownTp;
+}
+
+.say-hello li {
+	font-size: 1.125em;
+	font-weight: 700;
+	line-height: 1.65;
+	color: $coral;
+	list-style-type: none;
+}
+
+blockquote {
+	font-size: 1.125em;
+	color: $coolBrown;
+}
+
+footer.author {
+	font-size: 0.6875em;
+	font-style: italic;
+	color: $richBrown;
+}
+
+/* LAYOUT STYLES */
+header {
+	height: 204px;
+	background-image: url(../img/header-repeat.jpg);
+	background-repeat: repeat;
+	border-top: $coolBrown 6px solid;
+	box-shadow: 0 -1px 6px $coolBrownTp;
+
+}
+
+figure.portrait {
+	width: 142px;
+	height: 142px;
+	position: relative;
+	top: -25px; //not ideal
+	left: 942px;
+	border: $orange 6px solid;
+	background-color: $offWhite;
+
+	img {
+		width: 100%;
+	}
+}
+
+main, footer .say-hello {
+	@include box-size;
+}
+
+section {
+	margin: 50px 0;
+}
+
+section.introduction {
+	margin: 70px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
