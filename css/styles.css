@@ -25,7 +25,7 @@ header h1 {
   width: 600px;
   margin: 0 auto;
   display: block;
-  padding-top: 48px;
+  padding-top: 43px;
   font-size: 3em;
   font-weight: 700;
   line-height: 1.125;
@@ -85,7 +85,7 @@ footer.author {
 
 /* LAYOUT STYLES */
 header {
-  height: 204px;
+  height: 194px;
   background-image: url(../img/header-repeat.jpg);
   background-repeat: repeat;
   border-top: #857b75 6px solid;
@@ -112,8 +112,4 @@ main, footer .say-hello {
 
 section {
   margin: 50px 0;
-}
-
-section.introduction {
-  margin: 70px 0;
 }
