@@ -25,7 +25,7 @@ header h1 {
   width: 600px;
   margin: 0 auto;
   display: block;
-  padding-top: 43px;
+  padding-top: 40px;
   font-size: 3em;
   font-weight: 700;
   line-height: 1.125;
@@ -36,6 +36,7 @@ h2 {
   font-size: 2.375em;
   font-weight: 400;
   color: #c06e40;
+  padding-bottom: 4px;
 }
 
 h3 {
@@ -57,6 +58,13 @@ p {
 p.copyright {
   font-size: 0.6875em;
   color: #857b75;
+  text-align: center;
+}
+
+a {
+  color: #59463b;
+  text-decoration: none;
+  border-bottom: #93e1e2 6px solid;
 }
 
 input {
@@ -85,6 +93,7 @@ footer.author {
 
 /* LAYOUT STYLES */
 header {
+  position: relative;
   height: 194px;
   background-image: url(../img/header-repeat.jpg);
   background-repeat: repeat;
@@ -95,9 +104,9 @@ header {
 figure.portrait {
   width: 142px;
   height: 142px;
-  position: relative;
-  top: -25px;
-  left: 942px;
+  position: absolute;
+  right: 415px;
+  bottom: -71px;
   border: #c06e40 6px solid;
   background-color: #FBFBFA;
 }
@@ -105,11 +114,27 @@ figure.portrait img {
   width: 100%;
 }
 
-main, footer .say-hello {
-  width: 600px;
-  margin: 0 auto;
+main {
+  width: 100vw;
 }
 
 section {
-  margin: 50px 0;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+section.painting {
+  width: 100vw;
+  margin-left: 0;
+  margin-right: 0;
+}
+section.painting img {
+  width: 100vw;
+}
+section.painting h2 {
+  width: 600px;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
 }

@@ -1,8 +1,8 @@
 /* RESET */
 * {
-	margin:0;
- 	padding:0;
- 	border:0;
+	margin: 0;
+ 	padding: 0;
+ 	border: 0;
 	box-sizing: border-box;
 }
 
@@ -15,7 +15,7 @@ $coral: #93e1e2;
 $offWhite: #FBFBFA;
 
 /* MIXINS */
-@mixin box-size {
+@mixin box-size { // I think I only repeat this twice. How DRY should one be?
 	width: 600px;
 	margin: 0 auto;
 }
@@ -36,9 +36,9 @@ p, blockquote, footer.author, input {
 header h1 {
 	@include box-size;
 	display: block;
-	padding-top: (194px / 2) - ( 108 / 2); // (header height / 2) - (h2 height / 2)
+	padding-top: (194px / 2) - (108 / 2) - 3; // (header height / 2) - (h2 height / 2) - 3 empircally determined to look more centered.
 
-	font-size: 3em; // try writing a sass function to convert px to em
+	font-size: 3em; // I should try writing a sass function to convert px to em to avoid manual calculation
 	font-weight: 700;
 	line-height: 1.125;
 	color: $richBrown
@@ -48,6 +48,7 @@ h2 {
 	font-size: 2.375em;
 	font-weight: 400;
 	color: $orange;
+	padding-bottom: 4px;
 }
 
 h3 {
@@ -69,6 +70,13 @@ p {
 p.copyright {
 	font-size: 0.6875em;
 	color: $coolBrown;
+	text-align: center;
+}
+
+a {
+	color: $richBrown;
+	text-decoration: none;
+	border-bottom: $coral 6px solid; // Hm, how to style underline how I want it? This is too far from baseline
 }
 
 input {
@@ -97,6 +105,7 @@ footer.author {
 
 /* LAYOUT STYLES */
 header {
+	position: relative;
 	height: 194px;
 	background-image: url(../img/header-repeat.jpg);
 	background-repeat: repeat;
@@ -108,9 +117,9 @@ header {
 figure.portrait {
 	width: 142px;
 	height: 142px;
-	position: relative;
-	top: -25px; //not ideal
-	left: 942px;
+	position: absolute;
+	right: 415px;
+	bottom: -(142px/2); // figure height / 2
 	border: $orange 6px solid;
 	background-color: $offWhite;
 
@@ -119,16 +128,30 @@ figure.portrait {
 	}
 }
 
-main, footer .say-hello {
-	@include box-size;
+main {
+	width: 100vw;
 }
 
 section {
-	margin: 50px 0;
-}
+	@include box-size;
+	margin-top: 50px;
+	margin-bottom: 50px;
 
-section.introduction {
-	//margin: 70px 0;
+	&.painting {
+		width: 100vw; //or 100%?
+		margin-left: 0;
+		margin-right: 0;
+
+		img {
+			width: 100vw; //or 100%?
+		}
+
+		h2 {
+			@include box-size;
+			display: block;
+			position: absolute; //Here if I position absolute, h2 moves from being above image to being inside and at left. Not clear what's going on here.
+		}
+	}
 }
 
 
