@@ -50,6 +50,24 @@ p {
   color: #59463b;
 }
 
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+.clearfix {
+    display: block;
+}
+
+.fleft{ display:inline; float:left; }
+.fright{ display:inline; float:right; }
+
+
 .introduction p {
   font-size: 1.5em;
   line-height: 1.5;
@@ -92,6 +110,17 @@ footer.author {
 }
 
 /* LAYOUT STYLES */
+
+
+article .fleft{ width:40%; }
+/*http://motivationfactor.com/wp-content/uploads/2014/06/quote.png*/
+
+.first-quote{ background: transparent url('http://motivationfactor.com/wp-content/uploads/2014/06/quote.png') no-repeat left top; background-size:contain; overflow:hidden; position:absolute; left:-35px; top:-20px; width:100px; height:100px; z-index:-1; }
+
+article.what-im-reading{ margin:20px 0; }
+article footer{ background-image:none; }
+article div:last-child{ border-left:3px solid brown; padding-left:10px;}
+
 header {
   height: 194px;
   background-image: url(../img/header-repeat.jpg);
