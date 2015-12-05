@@ -1,3 +1,21 @@
+// VARIABLES
+$richBrown: #59463b;
+$coolBrown: #857b75;
+$orange: #c06e40;
+$coral: #93e1e2;
+$offWhite: #FBFBFA;
+
+// MIXINS
+@mixin box-size {
+	width: 600px;
+	margin: 0 auto;
+}
+
+@mixin border($borderSide, $color) {
+	border-#{$borderSide}: $color 6px solid;
+}
+
+
 /* RESET */
 * {
 	margin: 0;
@@ -6,23 +24,10 @@
 	box-sizing: border-box;
 }
 
-/* VARIABLES */
-$richBrown: #59463b;
-$coolBrown: #857b75;
-$coolBrownTp: rgba($coolBrown, 0.7);
-$orange: #c06e40;
-$coral: #93e1e2;
-$offWhite: #FBFBFA;
-
-/* MIXINS */
-@mixin box-size { // I think I only repeat this twice.
-	width: 600px;
-	margin: 0 auto;
-}
-
 /* TEXT STYLES */
 html {
 	font-size: 16px;
+	background-color: $coolBrown;
 }
 
 h1, h2, h3, li {
@@ -81,7 +86,7 @@ a {
 
 input {
 	font-size: 0.875em;
-	color: $coolBrownTp;
+	color: rgba($coolBrown, 0.7);
 }
 
 .say-hello li {
@@ -97,30 +102,35 @@ blockquote {
 	color: $coolBrown;
 }
 
-footer.author {
+cite {
 	font-size: 0.6875em;
 	font-style: italic;
 	color: $richBrown;
 }
+::selection {
+	background-color: rgba($coral, 0.5);
+}
 
 /* LAYOUT STYLES */
 header {
-	//position: relative;
+	position: relative;
 	height: 194px;
 	background-image: url(../img/header-repeat.jpg);
 	background-repeat: repeat;
-	border-top: $coolBrown 6px solid;
-	box-shadow: 0 -1px 6px $coolBrownTp;
-
+	@include border(top, $coolBrown);
+	box-shadow: 0 -1px 5px 1px rgba($coolBrown, 0.4);
 }
 
 figure.portrait {
 	width: 142px;
 	height: 142px;
 	position: absolute;
-	//right: 415px;
-	//bottom: -(142px/2); // figure height / 2
-	border: $orange 6px solid;
+	right: 415px;
+	bottom: -(142px/2); // figure height / 2
+	@include border(top, $orange);
+	@include border(left, $orange);
+	@include border(right, $orange);
+	@include border(bottom, $orange);
 	background-color: $offWhite;
 
 	img {
@@ -129,7 +139,9 @@ figure.portrait {
 }
 
 main {
-	width: 100vw;
+	overflow: hidden;
+	width: 100%;
+	background-color: #fff;
 }
 
 section {
@@ -138,17 +150,28 @@ section {
 	margin-bottom: 50px;
 
 	&.painting {
-		width: 100vw; //or 100%?
-		margin-left: 0;
-		margin-right: 0;
-
-		img {
-			width: 100vw; //or 100%?
-		}
-		h2 {
-			@include box-size;
-			display: block;
+		width: 100%;
+		height: 100%;
+		margin: 50px 0 0 0;
+		position: relative;
+		div {
+			width: 100%;
 			position: absolute;
+			h2 {
+				@include box-size;
+				padding-top: 16px;
+				text-shadow: 0 0 4px $richBrown;
+			}	
+		}
+		img {
+			width: 100%;
+		}
+	}
+	
+	&.say-hello {
+		@include box-size;
+		h2 {
+			padding-top: 16px;
 		}
 	}
 }
@@ -156,6 +179,17 @@ section {
 footer {
 	background-image: url(../img/footer-repeat.jpg);
 	background-repeat: repeat;
+	@include border(bottom, $coolBrown);
+
+	a {
+		font-weight: 700;
+		color: $coral;
+		border-bottom: none;
+	}
+
+	.copyright {
+		padding: 10px 0;
+	}
 }
 
 
