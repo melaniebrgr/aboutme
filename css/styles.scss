@@ -15,7 +15,7 @@ $coral: #93e1e2;
 $offWhite: #FBFBFA;
 
 /* MIXINS */
-@mixin box-size { // I think I only repeat this twice. How DRY should one be?
+@mixin box-size { // I think I only repeat this twice.
 	width: 600px;
 	margin: 0 auto;
 }
@@ -36,7 +36,7 @@ p, blockquote, footer.author, input {
 header h1 {
 	@include box-size;
 	display: block;
-	padding-top: (194px / 2) - (108 / 2) - 3; // (header height / 2) - (h2 height / 2) - 3 empircally determined to look more centered.
+	padding-top: (194px / 2) - (108 / 2) - 3; // (header height / 2) - (h2 height / 2) - 3 empirically determined to look more centered.
 
 	font-size: 3em; // I should try writing a sass function to convert px to em to avoid manual calculation
 	font-weight: 700;
@@ -105,7 +105,7 @@ footer.author {
 
 /* LAYOUT STYLES */
 header {
-	position: relative;
+	//position: relative;
 	height: 194px;
 	background-image: url(../img/header-repeat.jpg);
 	background-repeat: repeat;
@@ -118,8 +118,8 @@ figure.portrait {
 	width: 142px;
 	height: 142px;
 	position: absolute;
-	right: 415px;
-	bottom: -(142px/2); // figure height / 2
+	//right: 415px;
+	//bottom: -(142px/2); // figure height / 2
 	border: $orange 6px solid;
 	background-color: $offWhite;
 
@@ -145,13 +145,17 @@ section {
 		img {
 			width: 100vw; //or 100%?
 		}
-
 		h2 {
 			@include box-size;
 			display: block;
-			position: absolute; //Here if I position absolute, h2 moves from being above image to being inside and at left. Not clear what's going on here.
+			position: absolute;
 		}
 	}
+}
+
+footer {
+	background-image: url(../img/footer-repeat.jpg);
+	background-repeat: repeat;
 }
 
 

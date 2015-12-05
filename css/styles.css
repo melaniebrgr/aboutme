@@ -93,7 +93,6 @@ footer.author {
 
 /* LAYOUT STYLES */
 header {
-  position: relative;
   height: 194px;
   background-image: url(../img/header-repeat.jpg);
   background-repeat: repeat;
@@ -105,8 +104,6 @@ figure.portrait {
   width: 142px;
   height: 142px;
   position: absolute;
-  right: 415px;
-  bottom: -71px;
   border: #c06e40 6px solid;
   background-color: #FBFBFA;
 }
@@ -137,4 +134,9 @@ section.painting h2 {
   margin: 0 auto;
   display: block;
   position: absolute;
+}
+
+footer {
+  background-image: url(../img/footer-repeat.jpg);
+  background-repeat: repeat;
 }
