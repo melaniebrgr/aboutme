@@ -61,9 +61,18 @@ p.copyright {
 }
 
 a {
-  color: #59463b;
   text-decoration: none;
-  border-bottom: #93e1e2 6px solid;
+}
+
+main a {
+  color: #59463b;
+  border-bottom: #93e1e2 1px solid;
+  box-shadow: inset 0 -5px 0 #93e1e2;
+}
+
+footer a {
+  font-weight: 700;
+  color: #93e1e2;
 }
 
 input {
@@ -85,7 +94,7 @@ blockquote {
 }
 
 cite {
-  font-size: 0.6875em;
+  font-size: 0.8em;
   font-style: italic;
   color: #59463b;
 }
@@ -130,17 +139,79 @@ main {
   background-color: #fff;
 }
 
+form {
+  display: inline-block;
+  padding: 4px 10px;
+  border: #857b75 1px solid;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(133, 123, 117, 0.5);
+}
+form input {
+  outline: none;
+}
+
 section {
   width: 600px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
 }
+section.what-Im-reading {
+  position: relative;
+}
+section.what-Im-reading::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 115px;
+  height: 94px;
+  top: 48px;
+  left: -90px;
+  z-index: 1;
+  background-image: url(../img/ldquo.png);
+  background-repeat: no-repeat;
+}
+section.what-Im-reading::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 115px;
+  height: 94px;
+  bottom: 0;
+  right: -40px;
+  z-index: 1;
+  background-image: url(../img/rdquo.png);
+  background-repeat: no-repeat;
+}
+section.what-Im-reading article {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 25px;
+}
+section.what-Im-reading article .book-info {
+  float: left;
+  width: 30%;
+}
+section.what-Im-reading article blockquote {
+  float: left;
+  width: 65.5%;
+  margin-left: 3.5%;
+  border-left: #c06e40 6px solid;
+  padding-left: 20px;
+}
+section.what-Im-reading article::after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
 section.painting {
   width: 100%;
   height: 100%;
   margin: 50px 0 0 0;
   position: relative;
+  box-shadow: inset 0 0 6px #857b75;
 }
 section.painting div {
   width: 100%;
@@ -152,7 +223,11 @@ section.painting div h2 {
   padding-top: 16px;
   text-shadow: 0 0 4px #59463b;
 }
-section.painting img {
+section.painting figure {
+  height: 401px;
+  /* not sure why I have to hard code this; otherwise height is 405px, which leaves horrible white gap between footer */
+}
+section.painting figure img {
   width: 100%;
 }
 section.say-hello {
@@ -167,11 +242,6 @@ footer {
   background-image: url(../img/footer-repeat.jpg);
   background-repeat: repeat;
   border-bottom: #857b75 6px solid;
-}
-footer a {
-  font-weight: 700;
-  color: #93e1e2;
-  border-bottom: none;
 }
 footer .copyright {
   padding: 10px 0;

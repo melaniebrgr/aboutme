@@ -15,6 +15,18 @@ $offWhite: #FBFBFA;
 	border-#{$borderSide}: $color 6px solid;
 }
 
+@mixin floatLeft {
+	//display: inline;
+	float: left;
+}
+
+@mixin clearfix {
+	content: "."; 
+	visibility: hidden; 
+	display: block; 
+	height: 0; 
+	clear: both;
+}
 
 /* RESET */
 * {
@@ -23,6 +35,7 @@ $offWhite: #FBFBFA;
  	border: 0;
 	box-sizing: border-box;
 }
+
 
 /* TEXT STYLES */
 html {
@@ -79,9 +92,18 @@ p.copyright {
 }
 
 a {
-	color: $richBrown;
 	text-decoration: none;
-	border-bottom: $coral 6px solid; // Hm, how to style underline how I want it? This is too far from baseline
+}
+
+main a {
+	color: $richBrown;
+	border-bottom: $coral 1px solid;
+	box-shadow: inset 0 -5px 0 $coral;
+}
+
+footer a {
+	font-weight: 700;
+	color: $coral;
 }
 
 input {
@@ -103,7 +125,7 @@ blockquote {
 }
 
 cite {
-	font-size: 0.6875em;
+	font-size: 0.8em;
 	font-style: italic;
 	color: $richBrown;
 }
@@ -144,16 +166,76 @@ main {
 	background-color: #fff;
 }
 
+form {
+    display: inline-block;
+    padding: 4px 10px;
+	border: $coolBrown 1px solid;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba($coolBrown, 0.5);
+
+    input {
+    	outline: none;
+    }
+}
+
 section {
 	@include box-size;
 	margin-top: 50px;
 	margin-bottom: 50px;
+
+	&.what-Im-reading {	
+		position: relative;		
+		&::before {
+			content: "";
+		    display: block;
+		    position: absolute;
+		    width: 115px;
+		    height: 94px;
+		    top: 48px; //h2 height
+		    left: -90px;
+		    z-index: 1;
+		    background-image: url(../img/ldquo.png);
+		    background-repeat: no-repeat;
+		}	
+		&::after {
+			content: "";
+		    display: block;
+		    position: absolute;
+		    width: 115px;
+		    height: 94px;
+		    bottom: 0;
+		    right: -40px;
+		    z-index: 1;
+		    background-image: url(../img/rdquo.png);
+		    background-repeat: no-repeat;
+		}
+		article {
+			position: relative;
+			z-index: 2;
+			margin-bottom: 25px;
+			.book-info {
+				@include floatLeft;
+				width: 30%;
+			}
+			blockquote {
+				@include floatLeft;
+				width: 65.5%;
+				margin-left: 3.5%;
+				@include border(left, $orange);
+				padding-left: 20px;
+			}	
+			&::after {
+				@include clearfix;
+			}
+		}
+	}
 
 	&.painting {
 		width: 100%;
 		height: 100%;
 		margin: 50px 0 0 0;
 		position: relative;
+			box-shadow: inset 0 0 6px $coolBrown;
 		div {
 			width: 100%;
 			position: absolute;
@@ -163,8 +245,11 @@ section {
 				text-shadow: 0 0 4px $richBrown;
 			}	
 		}
-		img {
-			width: 100%;
+		figure {
+			height: 401px; /* not sure why I have to hard code this; otherwise height is 405px, which leaves horrible white gap between footer */
+			img {
+				width: 100%;
+			}
 		}
 	}
 	
@@ -179,13 +264,8 @@ section {
 footer {
 	background-image: url(../img/footer-repeat.jpg);
 	background-repeat: repeat;
-	@include border(bottom, $coolBrown);
 
-	a {
-		font-weight: 700;
-		color: $coral;
-		border-bottom: none;
-	}
+	@include border(bottom, $coolBrown);
 
 	.copyright {
 		padding: 10px 0;

@@ -15,24 +15,28 @@
 	<main>
 		<section class="introduction">
 			<p>I&rsquo;m a future designer<br>&amp; front-end developer at</p>
-			<form><input type="text" id="company" value="your company here"/></form>
+			<form><input type="text" id="company" onfocus="if(this.value == 'your company here') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'your company here'; }" value="your company here" /></form>
 			<p>where I work on innovative projects<br>with a great team of people.</p>
 		</section>
 		<section>
 			<h2>More about me</h2>
 			<p>I like to create, particularly at the intersection of art, science, and technology. I started digital painting during a MSc in Chemistry, and during a subsequent MSc in Biomedical Communication I rediscovered web development. Things have gotten more difficult since GeoCities.</p> 
-			<p>At present, I can be found at <a href="http://www.imagineeringart.com/">Imagineeringart</a> during the week, where I illustrate science textbooks. On weekends I enjoy spending time with my boyfriend, Vince, and my quadruped nephew, Pedro. I also organize monthly events on behalf of the <abbr title="Biomedical Communications Alumni Association"><a href="https://bmc.med.utoronto.ca/bmc/alumni/bmcaa/">BMCAA</a></abbr>. Sometimes I <a href="https://twitter.com/melaniebrgr">tweet</a>, <a href="http://www.jcheminf.com/content/7/1/35">write</a>, code <a href="http://codepen.io/melaniebrgr/">pens</a>, <a href="https://www.behance.net/melanieburger">paint</a>, and <a href="http://slides.com/mbrgr">speak</a>. I live in Toronto, Canada, home of Drake.</p>
+			<p>At present, I can be found at <a href="http://www.imagineeringart.com/">Imagineeringart</a> during the week, where I illustrate science textbooks. On weekends I enjoy spending time with my boyfriend, Vince, and my quadruped nephew, Pedro. I also organize monthly events on behalf of the <abbr title="Biomedical Communications Alumni Association"><a href="https://bmc.med.utoronto.ca/bmc/alumni/bmcaa/">BMCAA</a></abbr>. Sometimes I <a href="https://twitter.com/melaniebrgr">tweet</a>, <a href="http://www.jcheminf.com/content/7/1/35" title="ChemDoodle Web Components review article">write</a>, code <a href="http://codepen.io/melaniebrgr/" title="my CodePen profile">pens</a>, <a href="https://www.behance.net/melanieburger" title="my Behance portfolio">paint</a>, and <a href="http://slides.com/mbrgr" title="my presentations on Slides.com">speak</a>. I live in Toronto, Canada, home of Drake.</p>
 		</section>
-		<section>
+		<section class="what-Im-reading">
 			<h2>What I&rsquo;m reading</h2>
 			<article>
-				<h3>Design for How People Learn</h3>
-				<cite class="author">- Julie Dirksen</cite>
+				<div class="book-info">
+					<h3>Design for How People Learn</h3>
+					<cite class="author">- Julie Dirksen</cite>
+				</div>
 				<blockquote>If you can identify the gaps between where the learner is now, and where they need to be, you can design for better learning experiences. Sometimes the gap is knowledge, but just as often it&rsquo;s skill or motivation.</blockquote>
 			</article>
 			<article>
-				<h3>Art Chantry Speaks: A Heretic&rsquo;s History of 20th Century Graphic Design</h3>
-				<cite class="author">- Art Chantry</cite>
+				<div class="book-info">
+					<h3>Art Chantry Speaks: A Heretic&rsquo;s History of 20th Century Graphic Design</h3>
+					<cite class="author">- Art Chantry</cite>
+				</div>
 				<blockquote>I&rsquo;m in the business of fucking with people&rsquo;s ideas and fantasies. It&rsquo;s my job to use this language of graphic design to do so. I&rsquo;ll use color and shape and line and form to make the viewer change their mind about something.</blockquote>
 			</article>
 		</section>
