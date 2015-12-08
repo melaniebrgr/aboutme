@@ -224,7 +224,7 @@ section.painting div h2 {
   text-shadow: 0 0 4px #59463b;
 }
 section.painting figure {
-  height: 401px;
+  /*height: 401px;*/
   /* not sure why I have to hard code this; otherwise height is 405px, which leaves horrible white gap between footer */
 }
 section.painting figure img {
@@ -246,3 +246,7 @@ footer {
 footer .copyright {
   padding: 10px 0;
 }
+
+
+#pop-up-container{ background-color:rgba(0,0,0,.3); display:none; height:100%; left:0; position:absolute; top:0; width:100%; }
+#pop-up-content{ background-color:white; width:80%; margin:50px auto 0;  padding:10%; }

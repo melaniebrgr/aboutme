@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<title>About Me</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/aboutme.js"></script>
 </head>
 <body>
 	<header>
@@ -15,7 +18,7 @@
 	<main>
 		<section class="introduction">
 			<p>I&rsquo;m a future designer<br>&amp; front-end developer at</p>
-			<form><input type="text" id="company" onfocus="if(this.value == 'your company here') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'your company here'; }" value="your company here" /></form>
+			<form><input type="text" id="company" placeholder="your company here" /></form>
 			<p>where I work on innovative projects<br>with a great team of people.</p>
 		</section>
 		<section>
@@ -41,9 +44,9 @@
 			</article>
 		</section>
 		<section class="painting">
-			<div><h2>What I&rsquo;m painting</h2></div>		
+			<div><h2>What I&rsquo;m painting</h2></div>
 			<figure>
-				<img src="img/painting.jpg" alt="Painting of Santa Claus and Rudolph">
+				<img src="img/painting.jpg" alt="Painting of Santa Claus and Rudolph" />
 			</figure>
 		</section>
 	</main>
@@ -60,5 +63,8 @@
 		</section>
 		<p class="copyright">Copyright &copy; 2015 Melanie Burger</p>
 	</footer>
+
+    <div id="pop-up-container">
+    </div>
 </body>
 </html>
