@@ -246,3 +246,24 @@ footer {
 footer .copyright {
   padding: 10px 0;
 }
+
+/* MODAL */
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(133, 123, 117, 0.5);
+}
+.modal section {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px 30px;
+  background-color: #FBFBFA;
+}

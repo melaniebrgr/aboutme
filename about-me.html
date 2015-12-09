@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>About Me</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+	<!--script src="js/modal.js"></script-->
 </head>
 <body>
 	<header>
@@ -15,7 +17,7 @@
 	<main>
 		<section class="introduction">
 			<p>I&rsquo;m a future designer<br>&amp; front-end developer at</p>
-			<form><input type="text" id="company" onfocus="if(this.value == 'your company here') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'your company here'; }" value="your company here" /></form>
+			<form><input type="text" id="company" placeholder="your company here" /></form>
 			<p>where I work on innovative projects<br>with a great team of people.</p>
 		</section>
 		<section>
@@ -60,5 +62,18 @@
 		</section>
 		<p class="copyright">Copyright &copy; 2015 Melanie Burger</p>
 	</footer>
+	<div class="modal">
+		<section>
+			<div>
+				<h2>Thanks for hiring me!</h2>
+				<p>When's my start date?</p>
+			</div>
+			<form><input type="text" placeholder="my start date here" /></form>
+			<div>
+				<p>Great. Please leave<br>your company email address so I can be in touch.</p>
+			</div>
+			<form><input type="text" placeholder="your company email address" /></form>
+		</section>
+	</div>
 </body>
 </html>
