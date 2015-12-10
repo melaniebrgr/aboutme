@@ -1,1 +1,1 @@
-$(document).ready(function(){$(".modal").css("display","block"),$(".modal").load("../modal.html")});
+$(document).ready(function(){$("form").submit(function(o){return o.preventDefault(),o.stopPropagation(),!1}),$("input#company").keyup(function(o){return 13===o.keyCode&&($(".modal").load("../modal.html"),$(".modal").css("display","block")),!1})});

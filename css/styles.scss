@@ -43,7 +43,7 @@ html {
 	background-color: $coolBrown;
 }
 
-h1, h2, h3, li {
+h1, h2, h3, li, button[type="submit"] {
 	font-family: "Futura PT", Sans-Serif;
 }
 
@@ -131,6 +131,11 @@ cite {
 }
 ::selection {
 	background-color: rgba($coral, 0.5);
+}
+button[type="submit"] {
+	font-size: 0.9375em;
+	font-weight: 700;
+	color: $richBrown;
 }
 
 /* LAYOUT STYLES */
@@ -274,13 +279,13 @@ footer {
 
 /* MODAL */
 .modal {
-	//display: none;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-color: rgba($coolBrown, 0.5);
+	background-color: rgba($coolBrown, 0.65);
 
 	section {
 		position: relative;
@@ -290,6 +295,49 @@ footer {
 		margin-bottom: 0;
 		padding: 20px 30px;
 		background-color: $offWhite;
+
+		button.close {
+			position: absolute;
+			top: -30px;
+			right: -30px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background: $orange no-repeat center url(../img/close-x.png);
+			box-shadow: 0 1px 0 1px rgba($coolBrown, 0.35);
+		}	
+		div {
+			&:nth-child(n+2) {
+				margin-top: 12px;
+			}
+			p, form {
+				@include floatLeft;
+			}
+			p {
+				padding-top: 2px;
+				width: 40%;
+			}
+			form {
+				width: 60%;
+
+				input {
+					width: 100%;
+				}
+			}
+			&::after {
+				@include clearfix;
+			}	
+		}
+		button[type="submit"] {
+			margin-left: auto;
+			display: block;
+			width: 135px;
+			height: 36px;
+			background-color: $coral;
+			border: darken($coral, 20%) 1px solid;
+			box-shadow: inset 0 2px 1px 0 rgba($offWhite, 0.65),
+				0 1px 0 1px rgba($coolBrown, 0.35);
+		}
 	}
 }
 

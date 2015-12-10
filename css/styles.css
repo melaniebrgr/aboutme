@@ -12,7 +12,7 @@ html {
   background-color: #857b75;
 }
 
-h1, h2, h3, li {
+h1, h2, h3, li, button[type="submit"] {
   font-family: "Futura PT", Sans-Serif;
 }
 
@@ -105,6 +105,12 @@ cite {
 
 ::selection {
   background-color: rgba(147, 225, 226, 0.5);
+}
+
+button[type="submit"] {
+  font-size: 0.9375em;
+  font-weight: 700;
+  color: #59463b;
 }
 
 /* LAYOUT STYLES */
@@ -249,12 +255,13 @@ footer .copyright {
 
 /* MODAL */
 .modal {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(133, 123, 117, 0.5);
+  background-color: rgba(133, 123, 117, 0.65);
 }
 .modal section {
   position: relative;
@@ -266,4 +273,46 @@ footer .copyright {
   margin-bottom: 0;
   padding: 20px 30px;
   background-color: #FBFBFA;
+}
+.modal section button.close {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #c06e40 no-repeat center url(../img/close-x.png);
+  box-shadow: 0 1px 0 1px rgba(133, 123, 117, 0.35);
+}
+.modal section div:nth-child(n+2) {
+  margin-top: 12px;
+}
+.modal section div p, .modal section div form {
+  float: left;
+}
+.modal section div p {
+  padding-top: 2px;
+  width: 40%;
+}
+.modal section div form {
+  width: 60%;
+}
+.modal section div form input {
+  width: 100%;
+}
+.modal section div::after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+.modal section button[type="submit"] {
+  margin-left: auto;
+  display: block;
+  width: 135px;
+  height: 36px;
+  background-color: #93e1e2;
+  border: #43cbcc 1px solid;
+  box-shadow: inset 0 2px 1px 0 rgba(251, 251, 250, 0.65), 0 1px 0 1px rgba(133, 123, 117, 0.35);
 }
