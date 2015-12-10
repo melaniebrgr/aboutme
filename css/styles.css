@@ -1,4 +1,4 @@
-/* RESET */
+/* ==================== RESET ==================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* TEXT STYLES */
+/* ==================== TEXT STYLES ==================== */
 html {
   font-size: 16px;
   background-color: #857b75;
@@ -113,7 +113,7 @@ button[type="submit"] {
   color: #59463b;
 }
 
-/* LAYOUT STYLES */
+/* ==================== LAYOUT STYLES ==================== */
 header {
   position: relative;
   height: 194px;
@@ -231,7 +231,7 @@ section.painting div h2 {
 }
 section.painting figure {
   height: 401px;
-  /* not sure why I have to hard code this; otherwise height is 405px, which leaves horrible white gap between footer */
+  /* fix */
 }
 section.painting figure img {
   width: 100%;
@@ -253,7 +253,7 @@ footer .copyright {
   padding: 10px 0;
 }
 
-/* MODAL */
+/* ==================== MODAL ==================== */
 .modal {
   display: none;
   position: absolute;

@@ -28,7 +28,7 @@ $offWhite: #FBFBFA;
 	clear: both;
 }
 
-/* RESET */
+/* ==================== RESET ==================== */
 * {
 	margin: 0;
  	padding: 0;
@@ -36,8 +36,7 @@ $offWhite: #FBFBFA;
 	box-sizing: border-box;
 }
 
-
-/* TEXT STYLES */
+/* ==================== TEXT STYLES ==================== */
 html {
 	font-size: 16px;
 	background-color: $coolBrown;
@@ -132,13 +131,14 @@ cite {
 ::selection {
 	background-color: rgba($coral, 0.5);
 }
+
 button[type="submit"] {
 	font-size: 0.9375em;
 	font-weight: 700;
 	color: $richBrown;
 }
 
-/* LAYOUT STYLES */
+/* ==================== LAYOUT STYLES ==================== */
 header {
 	position: relative;
 	height: 194px;
@@ -189,7 +189,8 @@ section {
 	margin-bottom: 50px;
 
 	&.what-Im-reading {	
-		position: relative;		
+		position: relative;	
+
 		&::before {
 			content: "";
 		    display: block;
@@ -251,7 +252,7 @@ section {
 			}	
 		}
 		figure {
-			height: 401px; /* not sure why I have to hard code this; otherwise height is 405px, which leaves horrible white gap between footer */
+			height: 401px; /* fix */
 			img {
 				width: 100%;
 			}
@@ -277,9 +278,9 @@ footer {
 	}
 }
 
-/* MODAL */
+/* ==================== MODAL ==================== */
 .modal {
-	display: none;
+		display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -319,7 +320,6 @@ footer {
 			}
 			form {
 				width: 60%;
-
 				input {
 					width: 100%;
 				}
