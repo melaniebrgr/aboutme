@@ -280,7 +280,7 @@ footer {
 
 /* ==================== MODAL ==================== */
 .modal {
-		display: none;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -297,7 +297,7 @@ footer {
 		padding: 20px 30px;
 		background-color: $offWhite;
 
-		button.close {
+		button.close-modal {
 			position: absolute;
 			top: -30px;
 			right: -30px;
@@ -308,18 +308,17 @@ footer {
 			box-shadow: 0 1px 0 1px rgba($coolBrown, 0.35);
 		}	
 		div {
-			&:nth-child(n+2) {
-				margin-top: 12px;
-			}
+
+			margin-top: 12px;
 			p, form {
 				@include floatLeft;
 			}
 			p {
 				padding-top: 2px;
-				width: 40%;
+				width: 36%;
 			}
 			form {
-				width: 60%;
+				width: 64%;
 				input {
 					width: 100%;
 				}
@@ -327,6 +326,9 @@ footer {
 			&::after {
 				@include clearfix;
 			}	
+		}
+		> p {
+			margin-top: 12px;
 		}
 		button[type="submit"] {
 			margin-left: auto;
