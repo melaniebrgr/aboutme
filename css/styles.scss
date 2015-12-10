@@ -139,6 +139,10 @@ button[type="submit"] {
 }
 
 /* ==================== LAYOUT STYLES ==================== */
+input, button {
+	outline: none;
+}
+
 header {
 	position: relative;
 	height: 194px;
@@ -177,10 +181,6 @@ form {
 	border: $coolBrown 1px solid;
     border-radius: 4px;
     box-shadow: inset 0 1px 2px rgba($coolBrown, 0.5);
-
-    input {
-    	outline: none;
-    }
 }
 
 section {
@@ -241,7 +241,6 @@ section {
 		height: 100%;
 		margin: 50px 0 0 0;
 		position: relative;
-			box-shadow: inset 0 0 6px $coolBrown;
 		div {
 			width: 100%;
 			position: absolute;
@@ -252,7 +251,6 @@ section {
 			}	
 		}
 		figure {
-			height: 401px; /* fix */
 			img {
 				width: 100%;
 			}
@@ -268,9 +266,7 @@ section {
 }
 
 footer {
-	background-image: url(../img/footer-repeat.jpg);
-	background-repeat: repeat;
-
+	background: $richBrown repeat url(../img/footer-repeat.jpg);
 	@include border(bottom, $coolBrown);
 
 	.copyright {
@@ -294,51 +290,65 @@ footer {
 		transform: translateY(-50%);
 		margin-top: 0;
 		margin-bottom: 0;
-		padding: 20px 30px;
-		background-color: $offWhite;
+		@include border(top, $orange);
+		@include border(left, $orange); 
+		@include border(bottom, $orange); 
+		@include border(right, $orange);
 
-		button.close-modal {
-			position: absolute;
-			top: -30px;
-			right: -30px;
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
-			background: $orange no-repeat center url(../img/close-x.png);
-			box-shadow: 0 1px 0 1px rgba($coolBrown, 0.35);
-		}	
-		div {
+		div.modal-container {
+			position: relative;
+			padding: 20px 30px;
+			background-color: $offWhite;
+			margin: 20px;
+			box-shadow: 0 0 50px 10px rgba($coolBrown, 0.8);
 
-			margin-top: 12px;
-			p, form {
-				@include floatLeft;
-			}
-			p {
-				padding-top: 2px;
-				width: 36%;
-			}
-			form {
-				width: 64%;
-				input {
-					width: 100%;
-				}
-			}
-			&::after {
-				@include clearfix;
+			button.close-modal {
+				position: absolute;
+				top: -35px;
+				right: -35px;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background: $orange no-repeat center url(../img/close-x.png);
+				box-shadow: 0 1px 0 1px rgba($coolBrown, 0.35);
 			}	
-		}
-		> p {
-			margin-top: 12px;
-		}
-		button[type="submit"] {
-			margin-left: auto;
-			display: block;
-			width: 135px;
-			height: 36px;
-			background-color: $coral;
-			border: darken($coral, 20%) 1px solid;
-			box-shadow: inset 0 2px 1px 0 rgba($offWhite, 0.65),
-				0 1px 0 1px rgba($coolBrown, 0.35);
+			div {
+
+				margin-top: 12px;
+				p, form {
+					@include floatLeft;
+				}
+				p {
+					width: 40%;
+					padding-top: 2px;
+				}
+				form {
+					width: 60%;
+					input {
+						width: 100%;
+					}
+				}
+				&::after {
+					@include clearfix;
+				}	
+			}
+			> p {
+				margin-top: 12px;
+			}
+			button[type="submit"] {
+				margin-left: auto;
+				margin-top: 12px;
+				display: block;
+				width: 135px;
+				height: 36px;
+				border-radius: 4px;
+				background: $coral;
+				background: linear-gradient($coral, darken($coral, 10%));
+				border: darken($coral, 25%) 1px solid;
+				box-shadow: inset 0 1px 1px 0 rgba($offWhite, 0.7),
+					//inset 0 -1px 1px 0 mix($coral, $coolBrown, 60%),
+					0 1px 0 1px rgba($coolBrown, 0.55);
+			}
 		}
 	}
 }

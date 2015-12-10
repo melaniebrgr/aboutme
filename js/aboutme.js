@@ -5,13 +5,14 @@ $(document).ready(function() {
 		e.stopPropagation();
 		return false;
 	});
-	$('input#company').focus();
+	//$('input#company').focus();
 
 	$('input#company').keyup(function(e){
-		var company = $(this).val();
+		$(this).css('color', '#59463b');
 
 		//If enter is pressed from input field, do this
 		if(e.keyCode === 13) {
+			var company = $('input#company').val();
     		$('.modal').load('../modal.html', function() {
 
     			//If something was entered in the company form field, update h2 to include it
@@ -21,7 +22,8 @@ $(document).ready(function() {
 					$('.modal h2').text('Thanks for hiring me!');
 				}
 
-				$("input#start-date").focus(); // otherwise Esc keyup doesn't work??
+				$("input#start-date").css('color', '#59463b').focus(); // otherwise Esc keyup doesn't work??
+
 
 				// On start-date-form submit or submit-email button click, do this
 				$('#start-date-form').submit(function(e){
