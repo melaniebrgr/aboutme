@@ -5,6 +5,7 @@ function showModal() {
 	var company = $('input#company').val();
 	$('.modal').load('../modal.html', function() {
 
+		$('body').css('overflow', 'hidden');
 		//If something was entered in the company form field, update h2 to include it
 		if (company) {
 			$('.modal h2').text('Thanks for hiring me at ' + company + '!');
@@ -24,7 +25,6 @@ function showModal() {
 			var emailString = "mailto:melanie.brgr@gmail.com?subject=email from " + company + "&body=Hi, you will start at " + company + " on " + startDate +".";
 			$("#send-email").attr("href", emailString);
 			$("#send-email")[0].click(); //[0] to target href
-
 			return false; 
 		});
 		$("#submit-email").click(function() {
@@ -35,6 +35,7 @@ function showModal() {
 		$('.close-modal').click(function() {
 			$('.close-modal').parents('div.modal').empty();
 			$('.modal').css('display','none');
+			$('body').css('overflow', 'auto');
 		});
 		function escKeyUp(e) {
 			if (e.keyCode === 27) {
@@ -65,5 +66,5 @@ function showModal() {
 		if(e.keyCode === 13) { showModal(); }
 		return false;
 	});
-	
+
 });
