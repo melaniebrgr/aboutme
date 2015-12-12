@@ -62,6 +62,11 @@ $offWhite: #FBFBFA;
 	}
 }
 
+@mixin no-wrap {
+	white-space: nowrap;
+}
+
+
 /* ==================== RESET ==================== */
 * {
 	margin: 0;
@@ -69,6 +74,9 @@ $offWhite: #FBFBFA;
  	border: 0;
 	box-sizing: border-box;
 }
+
+
+
 
 /* ==================== TEXT STYLES ==================== */
 html {
@@ -85,14 +93,11 @@ p, blockquote, footer.author, input {
 }
 
 header h1 {
-	@include box-size;
-	display: block;
-	padding-top: (194px / 2) - (108 / 2) - 3; // (header height / 2) - (h2 height / 2) - 3 empirically determined to look more centered.
-
 	font-size: 3em; // I should try writing a sass function to convert px to em to avoid manual calculation
 	font-weight: 700;
 	line-height: 1.125;
-	color: $richBrown
+	color: $richBrown;
+	@include no-wrap;
 }
 
 h2 {
@@ -111,6 +116,8 @@ h3 {
 p {
 	font-size: 1.125em;
 	color: $richBrown;
+	display: block;
+	max-width: 100%;
 }
 
 .introduction p {
@@ -143,6 +150,13 @@ main a {
 }
 
 footer {
+	.say-hello li {
+		font-size: 1.125em;
+		font-weight: 700;
+		line-height: 1.65;
+		color: $coral;
+		list-style-type: none;
+	}
 	a {
 		font-weight: 700;
 		color: $coral;
@@ -157,14 +171,6 @@ footer {
 input {
 	font-size: 0.875em;
 	color: rgba($coolBrown, 0.7);
-}
-
-.say-hello li {
-	font-size: 1.125em;
-	font-weight: 700;
-	line-height: 1.65;
-	color: $coral;
-	list-style-type: none;
 }
 
 blockquote {
@@ -187,6 +193,9 @@ button[type="submit"] {
 	color: $richBrown;
 }
 
+
+
+
 /* ==================== LAYOUT STYLES ==================== */
 input, button {
 	outline: none;
@@ -199,23 +208,29 @@ header {
 	background-repeat: repeat;
 	@include border(top, $coolBrown);
 	box-shadow: 0 -1px 5px 1px rgba($coolBrown, 0.4);
-}
 
-figure.portrait {
-	width: 142px;
-	height: 142px;
-	position: absolute;
-	right: 415px;
-	bottom: -(142px/2); // figure height / 2
-	@include border(top, $orange);
-	@include border(left, $orange);
-	@include border(right, $orange);
-	@include border(bottom, $orange);
-	background-color: $offWhite;
-
-	img {
-		width: 100%;
+	h1 {
+		@include box-size;
+		display: block;
+		padding-top: (194px / 2) - (108 / 2) - 3; // (header height / 2) - (h2 height / 2) - 3 empirically determined to look more centered.	
 	}
+	figure.portrait {
+		width: 142px;
+		height: 142px;
+		position: absolute;
+		right: 415px;
+		bottom: -(142px/2); // figure height / 2
+		@include border(top, $orange);
+		@include border(left, $orange);
+		@include border(right, $orange);
+		@include border(bottom, $orange);
+		background-color: $offWhite;
+
+		img {
+			width: 100%;
+		}
+	}
+
 }
 
 main {
@@ -320,7 +335,6 @@ section {
 	}
 	
 	&.say-hello {
-		@include box-size;
 		h2 {
 			padding-top: 16px;
 		}
@@ -335,6 +349,9 @@ footer {
 		padding: 10px 0;
 	}
 }
+
+
+
 
 /* ==================== MODAL ==================== */
 .modal {
@@ -408,6 +425,76 @@ footer {
 }
 
 
+
+
+/* ==================== MEDIA QUERIES ==================== */
+
+// RESPONSIVE VARIABLES
+$divi: 1.35;
+
+@media only screen and (max-width: 980px) {
+	header { 
+		h1 { 
+			width: 80%;
+		}
+		figure.portrait {
+			right: 30%;
+		}
+	}
+	section {
+		width: 80%;
+	}
+}
+@media only screen and (max-width: 715px) {
+	header {
+		figure.portrait {
+			right: 10%;
+		}
+	}	
+}
+
+@media only screen and (max-width: 488px) {
+	header {
+		height: 154px;
+		h1 { 
+			font-size: (3em / $divi);
+			padding-top: 30px;
+		}
+		figure.portrait {
+			width: 112px;
+			height: 112px;
+			right: 10%;
+		}
+	}
+	h2 {
+		font-size: (2.375em / $divi);
+	}
+	section {
+		margin-top: 20px;
+	}
+	footer {
+		.say-hello li {
+			line-height: 1.8;
+		}
+	}
+}
+@media only screen and (max-width: 488px) {
+	header {
+		figure.portrait {
+			width: 72px;
+			height: 72px;
+			//border: none;
+			border-radius: 50%;
+			right: 10px;
+			bottom: 10px
+		}
+	}	
+}
+@media only screen and (max-width: 205px) {
+	header figure.portrait {
+			right: 0;
+	}
+}
 
 
 

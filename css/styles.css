@@ -17,14 +17,11 @@ p, blockquote, footer.author, input {
   font-family: "Tisa Pro", "Roboto Slab", Serif; }
 
 header h1 {
-  width: 600px;
-  margin: 0 auto;
-  display: block;
-  padding-top: 40px;
   font-size: 3em;
   font-weight: 700;
   line-height: 1.125;
-  color: #59463b; }
+  color: #59463b;
+  white-space: nowrap; }
 
 h2 {
   font-size: 2.375em;
@@ -39,7 +36,9 @@ h3 {
 
 p {
   font-size: 1.125em;
-  color: #59463b; }
+  color: #59463b;
+  display: block;
+  max-width: 100%; }
 
 .introduction p {
   font-size: 1.5em;
@@ -66,6 +65,12 @@ main a {
     border-bottom: #c06e40 1px solid;
     box-shadow: inset 0 -5px 0 #c06e40; }
 
+footer .say-hello li {
+  font-size: 1.125em;
+  font-weight: 700;
+  line-height: 1.65;
+  color: #93e1e2;
+  list-style-type: none; }
 footer a {
   font-weight: 700;
   color: #93e1e2;
@@ -76,13 +81,6 @@ footer a {
 input {
   font-size: 0.875em;
   color: rgba(133, 123, 117, 0.7); }
-
-.say-hello li {
-  font-size: 1.125em;
-  font-weight: 700;
-  line-height: 1.65;
-  color: #93e1e2;
-  list-style-type: none; }
 
 blockquote {
   font-size: 1.125em;
@@ -112,20 +110,24 @@ header {
   background-repeat: repeat;
   border-top: #857b75 6px solid;
   box-shadow: 0 -1px 5px 1px rgba(133, 123, 117, 0.4); }
-
-figure.portrait {
-  width: 142px;
-  height: 142px;
-  position: absolute;
-  right: 415px;
-  bottom: -71px;
-  border-top: #c06e40 6px solid;
-  border-left: #c06e40 6px solid;
-  border-right: #c06e40 6px solid;
-  border-bottom: #c06e40 6px solid;
-  background-color: #FBFBFA; }
-  figure.portrait img {
-    width: 100%; }
+  header h1 {
+    width: 600px;
+    margin: 0 auto;
+    display: block;
+    padding-top: 40px; }
+  header figure.portrait {
+    width: 142px;
+    height: 142px;
+    position: absolute;
+    right: 415px;
+    bottom: -71px;
+    border-top: #c06e40 6px solid;
+    border-left: #c06e40 6px solid;
+    border-right: #c06e40 6px solid;
+    border-bottom: #c06e40 6px solid;
+    background-color: #FBFBFA; }
+    header figure.portrait img {
+      width: 100%; }
 
 main {
   overflow: hidden;
@@ -226,11 +228,8 @@ section {
         text-shadow: 0 0 4px #59463b; }
     section.painting figure img {
       width: 100%; }
-  section.say-hello {
-    width: 600px;
-    margin: 0 auto; }
-    section.say-hello h2 {
-      padding-top: 16px; }
+  section.say-hello h2 {
+    padding-top: 16px; }
 
 footer {
   background: #59463b repeat url(../img/footer-repeat.jpg);
@@ -311,3 +310,45 @@ footer {
           background: linear-gradient(#6bd6d7, #43cbcc);
           box-shadow: 0 0 0 1px rgba(133, 123, 117, 0.65);
           top: 1px; }
+
+/* ==================== MEDIA QUERIES ==================== */
+@media only screen and (max-width: 980px) {
+  header h1 {
+    width: 80%; }
+  header figure.portrait {
+    right: 30%; }
+
+  section {
+    width: 80%; } }
+@media only screen and (max-width: 715px) {
+  header figure.portrait {
+    right: 10%; } }
+@media only screen and (max-width: 488px) {
+  header {
+    height: 154px; }
+    header h1 {
+      font-size: 2.2222222222em;
+      padding-top: 30px; }
+    header figure.portrait {
+      width: 112px;
+      height: 112px;
+      right: 10%; }
+
+  h2 {
+    font-size: 1.7592592593em; }
+
+  section {
+    margin-top: 20px; }
+
+  footer .say-hello li {
+    line-height: 1.8; } }
+@media only screen and (max-width: 488px) {
+  header figure.portrait {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    right: 10px;
+    bottom: 10px; } }
+@media only screen and (max-width: 205px) {
+  header figure.portrait {
+    right: 0; } }
