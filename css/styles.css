@@ -228,8 +228,11 @@ section {
         text-shadow: 0 0 4px #59463b; }
     section.painting figure img {
       width: 100%; }
-  section.say-hello h2 {
-    padding-top: 16px; }
+  section.say-hello {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+    section.say-hello h2 {
+      padding-top: 16px; }
 
 footer {
   background: #59463b repeat url(../img/footer-repeat.jpg);
@@ -312,43 +315,3 @@ footer {
           top: 1px; }
 
 /* ==================== MEDIA QUERIES ==================== */
-@media only screen and (max-width: 980px) {
-  header h1 {
-    width: 80%; }
-  header figure.portrait {
-    right: 30%; }
-
-  section {
-    width: 80%; } }
-@media only screen and (max-width: 715px) {
-  header figure.portrait {
-    right: 10%; } }
-@media only screen and (max-width: 488px) {
-  header {
-    height: 154px; }
-    header h1 {
-      font-size: 2.2222222222em;
-      padding-top: 30px; }
-    header figure.portrait {
-      width: 112px;
-      height: 112px;
-      right: 10%; }
-
-  h2 {
-    font-size: 1.7592592593em; }
-
-  section {
-    margin-top: 20px; }
-
-  footer .say-hello li {
-    line-height: 1.8; } }
-@media only screen and (max-width: 488px) {
-  header figure.portrait {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    right: 10px;
-    bottom: 10px; } }
-@media only screen and (max-width: 205px) {
-  header figure.portrait {
-    right: 0; } }

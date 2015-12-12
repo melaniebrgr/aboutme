@@ -1,9 +1,15 @@
 $(document).ready(function() {
 
 
+
 function showModal() {
 	var company = $('input#company').val();
+	
 	$('.modal').load('../modal.html', function() {
+		
+
+		$('input').blur();
+		$("input#start-date").css('color', '#59463b').focus();
 
 		$('body').css('overflow', 'hidden');
 		//If something was entered in the company form field, update h2 to include it
@@ -12,9 +18,6 @@ function showModal() {
 		} else {
 			$('.modal h2').text('Thanks for hiring me!');
 		}
-
-		$("input#start-date").css('color', '#59463b').focus(); // otherwise Esc keyup doesn't work??
-
 
 		// On start-date-form submit or submit-email button click, do this
 		$('#start-date-form').submit(function(e){
@@ -43,8 +46,9 @@ function showModal() {
 		  		$(document).unbind("keyup", escKeyUp);
 		  	}
 			return false;
-		}
-		$(document).keyup(escKeyUp);					
+		}	
+		$('.modal').keyup(escKeyUp);	
+
 			
 	});
 	$('.modal').css('display','block');	

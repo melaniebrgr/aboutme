@@ -335,6 +335,8 @@ section {
 	}
 	
 	&.say-hello {
+		margin-top: 0px;
+		margin-bottom: 0px;
 		h2 {
 			padding-top: 16px;
 		}
@@ -430,71 +432,71 @@ footer {
 /* ==================== MEDIA QUERIES ==================== */
 
 // RESPONSIVE VARIABLES
-$divi: 1.35;
+// $divi: 1.35;
 
-@media only screen and (max-width: 980px) {
-	header { 
-		h1 { 
-			width: 80%;
-		}
-		figure.portrait {
-			right: 30%;
-		}
-	}
-	section {
-		width: 80%;
-	}
-}
-@media only screen and (max-width: 715px) {
-	header {
-		figure.portrait {
-			right: 10%;
-		}
-	}	
-}
+// @media only screen and (max-width: 980px) {
+// 	header { 
+// 		h1 { 
+// 			width: 80%;
+// 		}
+// 		figure.portrait {
+// 			right: 30%;
+// 		}
+// 	}
+// 	section {
+// 		width: 80%;
+// 	}
+// }
+// @media only screen and (max-width: 715px) {
+// 	header {
+// 		figure.portrait {
+// 			right: 10%;
+// 		}
+// 	}	
+// }
 
-@media only screen and (max-width: 488px) {
-	header {
-		height: 154px;
-		h1 { 
-			font-size: (3em / $divi);
-			padding-top: 30px;
-		}
-		figure.portrait {
-			width: 112px;
-			height: 112px;
-			right: 10%;
-		}
-	}
-	h2 {
-		font-size: (2.375em / $divi);
-	}
-	section {
-		margin-top: 20px;
-	}
-	footer {
-		.say-hello li {
-			line-height: 1.8;
-		}
-	}
-}
-@media only screen and (max-width: 488px) {
-	header {
-		figure.portrait {
-			width: 72px;
-			height: 72px;
-			//border: none;
-			border-radius: 50%;
-			right: 10px;
-			bottom: 10px
-		}
-	}	
-}
-@media only screen and (max-width: 205px) {
-	header figure.portrait {
-			right: 0;
-	}
-}
+// @media only screen and (max-width: 488px) {
+// 	header {
+// 		height: 154px;
+// 		h1 { 
+// 			font-size: (3em / $divi);
+// 			padding-top: 30px;
+// 		}
+// 		figure.portrait {
+// 			width: 112px;
+// 			height: 112px;
+// 			right: 10%;
+// 		}
+// 	}
+// 	h2 {
+// 		font-size: (2.375em / $divi);
+// 	}
+// 	section {
+// 		margin-top: 20px;
+// 	}
+// 	footer {
+// 		.say-hello li {
+// 			line-height: 1.8;
+// 		}
+// 	}
+// }
+// @media only screen and (max-width: 488px) {
+// 	header {
+// 		figure.portrait {
+// 			width: 72px;
+// 			height: 72px;
+// 			//border: none;
+// 			border-radius: 50%;
+// 			right: 10px;
+// 			bottom: 10px
+// 		}
+// 	}	
+// }
+// @media only screen and (max-width: 205px) {
+// 	header figure.portrait {
+// 			right: 0;
+// 	}
+// }
 
 
 
