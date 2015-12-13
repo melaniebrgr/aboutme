@@ -42,7 +42,8 @@ p {
 
 .introduction p {
   font-size: 1.5em;
-  line-height: 1.5; }
+  line-height: 1.5;
+  white-space: nowrap; }
 
 p.copyright {
   font-size: 0.6875em;
@@ -109,7 +110,7 @@ header {
   background-image: url(../img/header-repeat.jpg);
   background-repeat: repeat;
   border-top: #857b75 6px solid;
-  box-shadow: 0 -1px 5px 1px rgba(133, 123, 117, 0.4); }
+  box-shadow: inset 0 -1px 1px 0px rgba(133, 123, 117, 0.3); }
   header h1 {
     width: 600px;
     margin: 0 auto;
@@ -121,6 +122,7 @@ header {
     position: absolute;
     right: 415px;
     bottom: -71px;
+    z-index: 1;
     border-top: #c06e40 6px solid;
     border-left: #c06e40 6px solid;
     border-right: #c06e40 6px solid;
@@ -139,7 +141,8 @@ form {
   padding: 4px 10px;
   border: #857b75 1px solid;
   border-radius: 4px;
-  box-shadow: inset 0 1px 0 1px rgba(133, 123, 117, 0.3); }
+  box-shadow: inset 0 1px 0 1px rgba(133, 123, 117, 0.3);
+  overflow: hidden; }
 
 section {
   width: 600px;
@@ -154,8 +157,8 @@ section {
     width: 135px;
     height: 36px;
     border-radius: 4px;
-    background: #93e1e2;
-    background: linear-gradient(#93e1e2, #6bd6d7);
+    background: #bbeced;
+    background: linear-gradient(#bbeced, #93e1e2);
     border: #34c0c2 1px solid;
     box-shadow: inset 0 1px 1px 0 #FBFBFA, 0 1px 0 1px rgba(133, 123, 117, 0.5);
     display: inline-block;
@@ -163,11 +166,11 @@ section {
     height: 30px;
     margin-left: 12px; }
     section.introduction button[type="submit"]:hover, section.introduction button[type="submit"]:focus {
-      background: #6bd6d7;
-      background: linear-gradient(#6bd6d7, #43cbcc); }
+      background: #93e1e2;
+      background: linear-gradient(#93e1e2, #6bd6d7); }
     section.introduction button[type="submit"]:active {
-      background: #6bd6d7;
-      background: linear-gradient(#6bd6d7, #43cbcc);
+      background: #93e1e2;
+      background: linear-gradient(#93e1e2, #6bd6d7);
       box-shadow: 0 0 0 1px rgba(133, 123, 117, 0.65);
       top: 1px; }
   section.what-Im-reading {
@@ -217,7 +220,8 @@ section {
     width: 100%;
     height: 100%;
     margin: 50px 0 0 0;
-    position: relative; }
+    position: relative;
+    box-shadow: inset 0 2px 0 1px #c06e40; }
     section.painting div {
       width: 100%;
       position: absolute; }
@@ -227,6 +231,7 @@ section {
         padding-top: 16px;
         text-shadow: 0 0 4px #59463b; }
     section.painting figure img {
+      vertical-align: text-bottom;
       width: 100%; }
   section.say-hello {
     margin-top: 0px;
@@ -236,6 +241,7 @@ section {
 
 footer {
   background: #59463b repeat url(../img/footer-repeat.jpg);
+  box-shadow: inset 0 1px 1px 0px rgba(133, 123, 117, 0.6);
   border-bottom: #857b75 6px solid; }
   footer .copyright {
     padding: 10px 0; }
@@ -243,7 +249,8 @@ footer {
 /* ==================== MODAL ==================== */
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   height: 100%;
@@ -273,7 +280,12 @@ footer {
         height: 50px;
         border-radius: 50%;
         background: #c06e40 no-repeat center url(../img/close-x.png);
-        box-shadow: 0 1px 0 1px rgba(133, 123, 117, 0.35); }
+        box-shadow: 0 1px 0 1px rgba(133, 123, 117, 0.65);
+        transition: all 0.08s ease-in-out; }
+        .modal section div.modal-container button.close-modal:hover {
+          background: #b5673c no-repeat center url(../img/close-x.png); }
+        .modal section div.modal-container button.close-modal:active {
+          box-shadow: none; }
       .modal section div.modal-container div {
         margin-top: 12px; }
         .modal section div.modal-container div p, .modal section div.modal-container div form {
@@ -301,17 +313,134 @@ footer {
         width: 135px;
         height: 36px;
         border-radius: 4px;
-        background: #93e1e2;
-        background: linear-gradient(#93e1e2, #6bd6d7);
+        background: #bbeced;
+        background: linear-gradient(#bbeced, #93e1e2);
         border: #34c0c2 1px solid;
         box-shadow: inset 0 1px 1px 0 #FBFBFA, 0 1px 0 1px rgba(133, 123, 117, 0.5); }
         .modal section div.modal-container button[type="submit"]:hover, .modal section div.modal-container button[type="submit"]:focus {
-          background: #6bd6d7;
-          background: linear-gradient(#6bd6d7, #43cbcc); }
+          background: #93e1e2;
+          background: linear-gradient(#93e1e2, #6bd6d7); }
         .modal section div.modal-container button[type="submit"]:active {
-          background: #6bd6d7;
-          background: linear-gradient(#6bd6d7, #43cbcc);
+          background: #93e1e2;
+          background: linear-gradient(#93e1e2, #6bd6d7);
           box-shadow: 0 0 0 1px rgba(133, 123, 117, 0.65);
           top: 1px; }
 
 /* ==================== MEDIA QUERIES ==================== */
+@media only screen and (max-width: 980px) {
+  header figure.portrait {
+    right: 30%;
+    width: 112px;
+    height: 112px; }
+
+  header h1, section, section.painting div h2 {
+    width: 60%; }
+
+  .modal section div.modal-container div p, .modal section div.modal-container div form {
+    float: none;
+    width: 100%;
+    margin-top: 6px; }
+  .modal section div.modal-container > p {
+    margin-top: 6px; } }
+@media only screen and (max-width: 715px) {
+  header h1 {
+    width: 80%; }
+  header figure.portrait {
+    right: 10%; }
+
+  section {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+    section.painting {
+      margin-top: 20px; }
+      section.painting div h2 {
+        width: 80%; }
+    section.what-Im-reading article .book-info {
+      float: none;
+      width: 100%; }
+    section.what-Im-reading article blockquote {
+      float: none;
+      width: 100%;
+      margin-left: 0;
+      margin-top: 10px;
+      padding-left: 0;
+      padding-top: 10px;
+      border: none;
+      border-top: #c06e40 6px solid; } }
+@media only screen and (max-width: 488px) {
+  h2 {
+    font-size: 1.7592592593em; }
+
+  p, blockquote {
+    font-size: 1em; }
+
+  .introduction p {
+    font-size: 1.2em; }
+
+  header {
+    height: 154px; }
+    header h1 {
+      font-size: 2.2222222222em;
+      padding-top: 30px; }
+    header figure.portrait {
+      width: 92px;
+      height: 92px;
+      right: 20px;
+      bottom: -36px; }
+
+  section {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    section.introduction form {
+      width: 100%;
+      margin-top: 10px; }
+    section.introduction button[type="submit"] {
+      width: 100%;
+      margin: 10px 0; }
+    section.what-Im-reading::before {
+      left: -40px; }
+    section.what-Im-reading::after {
+      right: -40px; }
+    section.painting {
+      margin-top: 20px; }
+      section.painting h2 {
+        padding-top: 8px;
+        width: 90%; }
+
+  footer .say-hello h2 {
+    padding-top: 8px; }
+  footer .say-hello li {
+    line-height: 1.8; }
+
+  .modal section div.modal-container button[type="submit"] {
+    width: 100%; } }
+@media only screen and (max-width: 380px) {
+  .introduction p {
+    white-space: normal;
+    font-size: 1em; }
+
+  header figure.portrait {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    right: 20px;
+    bottom: -36px; }
+
+  .modal section {
+    border: none;
+    width: 100%; }
+    .modal section div.modal-container {
+      margin: 0; }
+      .modal section div.modal-container button.close-modal {
+        position: absolute;
+        top: -20px;
+        right: 10px;
+        width: 40px;
+        height: 40px; } }
+@media only screen and (max-width: 205px) {
+  .introduction p {
+    white-space: normal; }
+
+  header figure.portrait {
+    right: 0; } }

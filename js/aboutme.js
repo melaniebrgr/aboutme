@@ -1,17 +1,17 @@
 $(document).ready(function() {
 
-
+$('input#company').focus();
 
 function showModal() {
 	var company = $('input#company').val();
 	
+	$('.modal').css('display','block');	
 	$('.modal').load('../modal.html', function() {
-		
 
+		$('body').css('overflow', 'hidden');
 		$('input').blur();
 		$("input#start-date").css('color', '#59463b').focus();
 
-		$('body').css('overflow', 'hidden');
 		//If something was entered in the company form field, update h2 to include it
 		if (company) {
 			$('.modal h2').text('Thanks for hiring me at ' + company + '!');
@@ -19,7 +19,7 @@ function showModal() {
 			$('.modal h2').text('Thanks for hiring me!');
 		}
 
-		// On start-date-form submit or submit-email button click, do this
+		// On start-date form submit or submit-email button click, launch email client
 		$('#start-date-form').submit(function(e){
 			e.preventDefault();
 			e.stopPropagation();
@@ -47,11 +47,8 @@ function showModal() {
 		  	}
 			return false;
 		}	
-		$('.modal').keyup(escKeyUp);	
-
-			
+		$('.modal').keyup(escKeyUp);		
 	});
-	$('.modal').css('display','block');	
 }
 
 

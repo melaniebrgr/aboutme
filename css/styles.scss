@@ -25,7 +25,6 @@ $offWhite: #FBFBFA;
 }
 
 @mixin floatLeft {
-	//display: inline;
 	float: left;
 }
 
@@ -43,20 +42,19 @@ $offWhite: #FBFBFA;
 	width: 135px;
 	height: 36px;
 	border-radius: 4px;
-	background: $coral;
-	background: linear-gradient($coral, darken($coral, 10%));
+	background: lighten($coral, 10%);
+	background: linear-gradient(lighten($coral, 10%), $coral);
 	border: darken($coral, 25%) 1px solid;
 	box-shadow: inset 0 1px 1px 0 $offWhite,
-		//inset 0 -1px 1px 0 mix($coral, $coolBrown, 60%),
 		0 1px 0 1px rgba($coolBrown, 0.5);
 
 	&:hover, &:focus {
-		background: darken($coral, 10%);
-		background: linear-gradient(darken($coral, 10%), darken($coral, 20%));
+		background: $coral;
+		background: linear-gradient($coral, darken($coral, 10%));
 	}
 	&:active {
-		background: darken($coral, 10%);
-		background: linear-gradient(darken($coral, 10%), darken($coral, 20%));
+		background: $coral;
+		background: linear-gradient($coral, darken($coral, 10%));
 		box-shadow: 0 0 0 1px rgba($coolBrown, 0.65);
 		top: 1px;
 	}
@@ -93,7 +91,7 @@ p, blockquote, footer.author, input {
 }
 
 header h1 {
-	font-size: 3em; // I should try writing a sass function to convert px to em to avoid manual calculation
+	font-size: 3em;
 	font-weight: 700;
 	line-height: 1.125;
 	color: $richBrown;
@@ -123,6 +121,7 @@ p {
 .introduction p {
 	font-size: 1.5em;
 	line-height: 1.5;
+	@include no-wrap;
 }
 
 p.copyright {
@@ -207,7 +206,7 @@ header {
 	background-image: url(../img/header-repeat.jpg);
 	background-repeat: repeat;
 	@include border(top, $coolBrown);
-	box-shadow: 0 -1px 5px 1px rgba($coolBrown, 0.4);
+	box-shadow: inset 0 -1px 1px 0px rgba(133, 123, 117, 0.3);
 
 	h1 {
 		@include box-size;
@@ -220,6 +219,7 @@ header {
 		position: absolute;
 		right: 415px;
 		bottom: -(142px/2); // figure height / 2
+		z-index: 1;
 		@include border(top, $orange);
 		@include border(left, $orange);
 		@include border(right, $orange);
@@ -245,6 +245,7 @@ form {
 	border: $coolBrown 1px solid;
     border-radius: 4px;
     box-shadow: inset 0 1px 0 1px rgba($coolBrown, 0.3);
+    overflow: hidden;
 }
 
 section {
@@ -318,6 +319,8 @@ section {
 		height: 100%;
 		margin: 50px 0 0 0;
 		position: relative;
+		box-shadow: inset 0 2px 0 1px $orange;
+
 		div {
 			width: 100%;
 			position: absolute;
@@ -329,6 +332,7 @@ section {
 		}
 		figure {
 			img {
+				vertical-align: text-bottom; //because img is an inline element, space would otherwise be left below it for descenders by default
 				width: 100%;
 			}
 		}
@@ -345,6 +349,7 @@ section {
 
 footer {
 	background: $richBrown repeat url(../img/footer-repeat.jpg);
+	box-shadow: inset 0 1px 1px 0px rgba($coolBrown, 0.6);
 	@include border(bottom, $coolBrown);
 
 	.copyright {
@@ -358,7 +363,8 @@ footer {
 /* ==================== MODAL ==================== */
 .modal {
 	display: none;
-	position: absolute;
+	position: fixed;
+	z-index: 2;
 	top: 0;
 	left: 0;
 	height: 100%;
@@ -391,10 +397,17 @@ footer {
 				height: 50px;
 				border-radius: 50%;
 				background: $orange no-repeat center url(../img/close-x.png);
-				box-shadow: 0 1px 0 1px rgba($coolBrown, 0.35);
+				box-shadow: 0 1px 0 1px rgba($coolBrown, 0.65);
+				@include transition;
+
+				&:hover {
+					background: darken($orange, 3%) no-repeat center url(../img/close-x.png);
+				}
+				&:active {
+					box-shadow: none;
+				}
 			}	
 			div {
-
 				margin-top: 12px;
 				p, form {
 					@include floatLeft;
@@ -427,80 +440,188 @@ footer {
 }
 
 
-
-
 /* ==================== MEDIA QUERIES ==================== */
 
-// RESPONSIVE VARIABLES
-// $divi: 1.35;
+//RESPONSIVE VARIABLES
+$divi: 1.35;
 
-// @media only screen and (max-width: 980px) {
-// 	header { 
-// 		h1 { 
-// 			width: 80%;
-// 		}
-// 		figure.portrait {
-// 			right: 30%;
-// 		}
-// 	}
-// 	section {
-// 		width: 80%;
-// 	}
-// }
-// @media only screen and (max-width: 715px) {
-// 	header {
-// 		figure.portrait {
-// 			right: 10%;
-// 		}
-// 	}	
-// }
+@media only screen and (max-width: 980px) {
+	header { 
+		figure.portrait {
+			right: 30%;
+			width: 112px;
+			height: 112px;
+		}
+	}
+	header h1, section, section.painting div h2 {
+		width: 60%;
+	}
+	.modal section div.modal-container {
+		div {
+			p, form {
+				float: none;
+				width: 100%;
+				margin-top: 6px;
+			}
+		}
+		> p {
+			margin-top: 6px;
+		}
+	}
+}
 
-// @media only screen and (max-width: 488px) {
-// 	header {
-// 		height: 154px;
-// 		h1 { 
-// 			font-size: (3em / $divi);
-// 			padding-top: 30px;
-// 		}
-// 		figure.portrait {
-// 			width: 112px;
-// 			height: 112px;
-// 			right: 10%;
-// 		}
-// 	}
-// 	h2 {
-// 		font-size: (2.375em / $divi);
-// 	}
-// 	section {
-// 		margin-top: 20px;
-// 	}
-// 	footer {
-// 		.say-hello li {
-// 			line-height: 1.8;
-// 		}
-// 	}
-// }
-// @media only screen and (max-width: 488px) {
-// 	header {
-// 		figure.portrait {
-// 			width: 72px;
-// 			height: 72px;
-// 			//border: none;
-// 			border-radius: 50%;
-// 			right: 10px;
-// 			bottom: 10px
-// 		}
-// 	}	
-// }
-// @media only screen and (max-width: 205px) {
-// 	header figure.portrait {
-// 			right: 0;
-// 	}
-// }
+@media only screen and (max-width: 715px) {
+	header {
+		h1 {
+			width: 80%;
+		}
+		figure.portrait {
+			right: 10%;
+		}
+	}
+	section {
+		width: 80%;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		
+		&.painting {
+			margin-top: 20px;
+			div h2 {
+				width: 80%;
+			}
+		}
+		
+		&.what-Im-reading {
+			article {
+				.book-info {
+					float: none;
+					width: 100%;
+				}
+				blockquote {
+					float: none;
+					width: 100%;
+					margin-left: 0;
+					margin-top: 10px;
+					padding-left: 0;
+					padding-top: 10px;
+					border: none;
+					@include border(top, $orange);
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 488px) {
+	h2 {
+		font-size: (2.375em / $divi);
+	}
+	p, blockquote {
+		font-size: 1em;
+	}
+	.introduction p {
+		font-size: 1.2em
+	}	
+
+	header {
+		height: 154px;
+		h1 { 
+			font-size: (3em / $divi);
+			padding-top: 30px;
+		}
+		figure.portrait {
+			width: 92px;
+			height: 92px;
+			right: 20px;
+			bottom: -36px
+		}		
+	}
+
+	section {
+		margin-top: 10px;
+		margin-bottom: 10px;
+
+		&.introduction {
+			form {
+				width: 100%;
+				margin-top: 10px;
+			}
+			button[type="submit"] {
+				width: 100%;
+				margin: 10px 0;
+			}
+		}
+		&.what-Im-reading {	
+			&::before {
+			    left: -40px;
+			}	
+			&::after {
+			    right: -40px;
+			}
+		}		
+		&.painting {
+			margin-top: 20px;
+
+			h2 {
+				padding-top: 8px;
+				width: 90%;
+			}
+		}
+	}
+
+	footer {
+		.say-hello {
+			h2 { 
+				padding-top: 8px; 
+			}
+			li {
+				line-height: 1.8;
+			}
+		}
+	}
 
 
+	.modal section div.modal-container button[type="submit"] {
+		width: 100%;
+	}
+}
 
+@media only screen and (max-width: 380px) {
+	.introduction p {
+		white-space: normal;
+		font-size: 1em;
+	}
+	header {
+		figure.portrait {
+			width: 72px;
+			height: 72px;
+			border-radius: 50%;
+			right: 20px;
+			bottom: -36px
+		}
+	}
+	.modal section {
+		border: none;
+		width: 100%;
 
+		div.modal-container {
+			margin: 0;
+			button.close-modal {
+				position: absolute;
+				top: -20px;
+				right: 10px;
+				width: 40px;
+				height: 40px;
+			}
+		}
+	}
+}
 
-
-
+@media only screen and (max-width: 205px) {
+	.introduction p {
+		white-space: normal;
+	}
+	header figure.portrait {
+			right: 0;
+	}
+}
