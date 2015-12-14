@@ -141,8 +141,7 @@ form {
   padding: 4px 10px;
   border: #857b75 1px solid;
   border-radius: 4px;
-  box-shadow: inset 0 1px 0 1px rgba(133, 123, 117, 0.3);
-  overflow: hidden; }
+  box-shadow: inset 0 1px 0 1px rgba(133, 123, 117, 0.3); }
 
 section {
   width: 600px;
