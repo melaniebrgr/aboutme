@@ -6,7 +6,7 @@ function showModal() {
 	var company = $('input#company').val();
 	
 	$('.modal').css('display','block');	
-	$('.modal').load('../modal.html', function() {
+	$('.modal').load('modal.html', function() {
 
 		$('body').css('overflow', 'hidden');
 		$('input').blur();
